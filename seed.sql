@@ -1,0 +1,122 @@
+insert into public.categories (id, name, slug, icon) values
+  ('10000000-0000-0000-0000-000000000001', 'Phone Accessories', 'phone-accessories', 'Headphones'),
+  ('10000000-0000-0000-0000-000000000002', 'Fashion', 'fashion', 'Shirt'),
+  ('10000000-0000-0000-0000-000000000003', 'Electronics', 'electronics', 'Tv'),
+  ('10000000-0000-0000-0000-000000000004', 'Beauty & Cosmetics', 'beauty-cosmetics', 'Sparkles'),
+  ('10000000-0000-0000-0000-000000000005', 'Foodstuff', 'foodstuff', 'ShoppingBasket'),
+  ('10000000-0000-0000-0000-000000000006', 'Building Materials', 'building-materials', 'Hammer'),
+  ('10000000-0000-0000-0000-000000000007', 'Auto Parts', 'auto-parts', 'Car'),
+  ('10000000-0000-0000-0000-000000000008', 'Pharmacy', 'pharmacy', 'Pill'),
+  ('10000000-0000-0000-0000-000000000009', 'Supermarkets', 'supermarkets', 'Store'),
+  ('10000000-0000-0000-0000-000000000010', 'Services', 'services', 'Briefcase')
+on conflict (slug) do nothing;
+
+insert into public.businesses (
+  id, name, slug, category_id, description, address, city, state, latitude, longitude,
+  whatsapp_number, phone_number, logo_url, cover_image_url, opening_hours, is_verified, status
+) values
+  (
+    '20000000-0000-0000-0000-000000000001',
+    'Coal City Mobile Accessories',
+    'coal-city-mobile-accessories',
+    '10000000-0000-0000-0000-000000000001',
+    'Verified phone accessories shop for chargers, earbuds, screen guards, pouches, and power banks.',
+    'Shop 14, Ogbete Main Market',
+    'Enugu',
+    'Enugu',
+    6.4597,
+    7.5104,
+    '08012345678',
+    '08123456780',
+    'https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=500&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1400&auto=format&fit=crop',
+    'Mon - Sat, 8:30am - 6:30pm',
+    true,
+    'approved'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000002',
+    'Ariaria Urban Wears',
+    'ariaria-urban-wears',
+    '10000000-0000-0000-0000-000000000002',
+    'Aba-made ready-to-wear store selling quality shirts, kaftans, trousers, and casual pieces.',
+    'Line 3, Ariaria International Market',
+    'Aba',
+    'Abia',
+    5.1219,
+    7.3667,
+    '+2348034567890',
+    '08034567890',
+    'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=500&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1400&auto=format&fit=crop',
+    'Mon - Sat, 9:00am - 6:00pm',
+    true,
+    'approved'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000003',
+    'Ikeja Smart Electronics',
+    'ikeja-smart-electronics',
+    '10000000-0000-0000-0000-000000000003',
+    'Trusted Ikeja electronics store for TVs, sound systems, laptops, and home appliances.',
+    '12 Otigba Street, Computer Village',
+    'Ikeja',
+    'Lagos',
+    6.5965,
+    3.3421,
+    '07055551234',
+    '07055551234',
+    'https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=500&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1498049794561-7780e7231661?q=80&w=1400&auto=format&fit=crop',
+    'Mon - Sat, 8:00am - 7:00pm',
+    true,
+    'approved'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000004',
+    'Dei-Dei Builders Hub',
+    'dei-dei-builders-hub',
+    '10000000-0000-0000-0000-000000000006',
+    'Building materials supplier for cement, tiles, plumbing fittings, roofing sheets, and tools.',
+    'Plot 22, Dei-Dei Building Materials Market',
+    'Abuja',
+    'FCT',
+    9.1137,
+    7.3451,
+    '08111112222',
+    '08111112222',
+    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1586266397479-7e4facca5d6d?q=80&w=1400&auto=format&fit=crop',
+    'Mon - Sat, 7:30am - 5:30pm',
+    false,
+    'pending'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000005',
+    'Mile One Beauty Mart',
+    'mile-one-beauty-mart',
+    '10000000-0000-0000-0000-000000000004',
+    'Beauty and cosmetics store with skincare, hair products, fragrances, and makeup kits.',
+    '21 Ikwerre Road, Mile One Market',
+    'Port Harcourt',
+    'Rivers',
+    4.7975,
+    6.9996,
+    '09022223333',
+    '09022223333',
+    'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=500&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1400&auto=format&fit=crop',
+    'Mon - Sat, 9:00am - 6:30pm',
+    true,
+    'approved'
+  )
+on conflict (slug) do nothing;
+
+insert into public.products (business_id, category_id, title, slug, description, price, image_url, availability_status) values
+  ('20000000-0000-0000-0000-000000000001', '10000000-0000-0000-0000-000000000001', 'Oraimo 20W Fast Charger', 'oraimo-20w-fast-charger', 'Original fast charger with Type-C cable.', 12500, 'https://images.unsplash.com/photo-1589089096584-87c5c2038d6b?q=80&w=700&auto=format&fit=crop', 'available'),
+  ('20000000-0000-0000-0000-000000000001', '10000000-0000-0000-0000-000000000001', '20000mAh Power Bank', '20000mah-power-bank', 'Long-lasting dual-output power bank.', 24500, 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?q=80&w=700&auto=format&fit=crop', 'limited_stock'),
+  ('20000000-0000-0000-0000-000000000002', '10000000-0000-0000-0000-000000000002', 'Men''s Linen Kaftan', 'mens-linen-kaftan', 'Aba-made kaftan in navy, black, and cream.', 28000, 'https://images.unsplash.com/photo-1593032465175-481ac7f401a0?q=80&w=700&auto=format&fit=crop', 'available'),
+  ('20000000-0000-0000-0000-000000000003', '10000000-0000-0000-0000-000000000003', '43-inch Smart TV', '43-inch-smart-tv', 'Android smart TV with warranty and installation support.', 235000, 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=700&auto=format&fit=crop', 'available'),
+  ('20000000-0000-0000-0000-000000000004', '10000000-0000-0000-0000-000000000006', 'Dangote Cement 50kg', 'dangote-cement-50kg', 'Fresh stock, bulk purchase available.', 9500, 'https://images.unsplash.com/photo-1623416014587-85c0f684ed23?q=80&w=700&auto=format&fit=crop', 'available'),
+  ('20000000-0000-0000-0000-000000000005', '10000000-0000-0000-0000-000000000004', 'Vitamin C Serum', 'vitamin-c-serum', 'Brightening serum for daily skincare routine.', 14500, 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=700&auto=format&fit=crop', 'limited_stock')
+on conflict (business_id, slug) do nothing;
